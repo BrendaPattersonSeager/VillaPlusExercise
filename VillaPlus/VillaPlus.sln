@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VillaPlus", "VillaPlus\VillaPlus.csproj", "{7409A136-39FF-4BE5-897E-EE75D003D9B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VillaPlus.Tests", "VillaPlus.Tests\VillaPlus.Tests.csproj", "{8E9073E3-586A-4424-831D-01AD3E5D5AB7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7409A136-39FF-4BE5-897E-EE75D003D9B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7409A136-39FF-4BE5-897E-EE75D003D9B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7409A136-39FF-4BE5-897E-EE75D003D9B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7409A136-39FF-4BE5-897E-EE75D003D9B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E9073E3-586A-4424-831D-01AD3E5D5AB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E9073E3-586A-4424-831D-01AD3E5D5AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E9073E3-586A-4424-831D-01AD3E5D5AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E9073E3-586A-4424-831D-01AD3E5D5AB7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F406EB39-7FF7-4C84-8781-E1BE37F8E3B4}
+	EndGlobalSection
+EndGlobal

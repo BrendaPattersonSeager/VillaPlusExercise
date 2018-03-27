@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Villa Plus Holiday Accessories</h1>
+    
+</div>
+
+<div class="row">
+   
+    <div class="col-md-4">
+        <label>Conditioner</label>
+        <label>Price £3.00</label>
+        <button id="btnAddConditioner">Add</button>
+    </div>
+
+    <div class="col-md-4">
+        <label>Shampoo</label>
+        <label>Price £2.00</label>
+        <button id="btnAddShampoo">Add</button>
+    </div>
+
+    <div>
+
+        <table id="tableTotal">
+           <tr><label>Total: £ </label><label id="totalPrice"></label></tr> 
+        </table>
+        
+        
+    </div>
+
+
+
+
+
+    
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            
+
+        });
+
+        var totPrice = 0;
+        var discountConditionerCount = 0;
+        var discountShampooCount = 0;
+
+        $("#btnAddConditioner").click(function () {
+
+            var table = document.getElementById("tableTotal");
+            var row = table.insertRow(0);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            cell1.innerHTML = "Conditioner ";
+            cell2.innerHTML = "£3.00";
+            itemPrice = 3;
+            discountConditionerCount = discountConditionerCount + 1;
+ 
+                $.ajax({
+                    url: '/Home/CalculateDiscount',
+                    type: "GET",
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+                    data: { itemPrice: itemPrice, Total: totPrice, discountCounter: discountConditionerCount },
+                    success: function (data) {
+
+                        document.getElementById("totalPrice").innerHTML = data.total;
+                        totPrice = data.total;
+                        discountConditionerCount = data.discountCounter;
+
+                        if (data.discountApplied == true) {
+                            document.getElementById("tableTotal").deleteRow(0);
+                            var table = document.getElementById("tableTotal");
+                            var row = table.insertRow(0);
+                            var cell1 = row.insertCell(0);
+                            var cell2 = row.insertCell(1);
+                            cell1.innerHTML = "Conditioner ";
+                            cell2.innerHTML = "£0.00  (-£3.00)";
+                        }
+                       
+
+                    },
+                });
+
+            
+        });
+
+        $("#btnAddShampoo").click(function () {
+
+            var table = document.getElementById("tableTotal");
+            var row = table.insertRow(0);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            cell1.innerHTML = "Shampoo ";
+            cell2.innerHTML = "£2.00";
+            itemPrice = 2;
+            discountShampooCount = discountShampooCount + 1;
+
+            $.ajax({
+                url: '/Home/CalculateDiscount',
+                type: "GET",
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                data: { itemPrice: itemPrice, Total: totPrice, discountCounter: discountShampooCount },
+                success: function (data) {
+
+                    document.getElementById("totalPrice").innerHTML = data.total;
+                    totPrice = data.total;
+                    discountShampooCount = data.discountCounter;
+
+                    if (data.discountApplied == true) {
+                        document.getElementById("tableTotal").deleteRow(0);
+                        var table = document.getElementById("tableTotal");
+                        var row = table.insertRow(0);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        cell1.innerHTML = "Shampoo ";
+                        cell2.innerHTML = "£0.00  (-£2.00)";
+                    }
+
+
+                },
+            });
+
+
+        });
+
+</script>
+    
+    
+    
+    
+    }
